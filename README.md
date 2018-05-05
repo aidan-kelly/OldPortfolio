@@ -1,0 +1,1 @@
+This is my second attempt at creating a website! I am currently just using html and css.
