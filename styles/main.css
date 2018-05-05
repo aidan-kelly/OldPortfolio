@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    height: 900px;
+    width: 1024px;
+    grid-template-rows: 375px 50px 75px 400px;
+    grid-template-columns: 1fr;
+}
+
+
+
+
+
+.page_title{
+    background-image: url(../images/header.jpg);
+    grid-area: 1/1/2/2;
+    z-index: 10;
+}
+
+.page_title h1{
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+p {
+    color: red;
+}
+
