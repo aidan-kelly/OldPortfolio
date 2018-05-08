@@ -2,13 +2,13 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: slategray;
     color: white;
-    gap: 15px;
     margin: 0px;
+    gap: 20px;
 }
 
 .grid {
     display: grid;
-    grid-template-rows: 375px 30px 50px 400px;
+    grid-template-rows: 375px 40px 50px 400px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -21,26 +21,36 @@
 
 }
 
-.coding{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    
+.nav{
+    grid-area: 2 / 1/ span 1/ span 3;
+    text-align: center;
 }
 
-.climbing{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 3;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-.cocktails{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 3;
-    grid-column-end: 4;
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+    background-color: #333;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }
 
 .aboutmetitle{
