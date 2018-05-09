@@ -71,7 +71,12 @@ li a:hover {
 
 .mypic{
     grid-area: 4 / 3 / 5 / span 1;
-    padding: 10px;
+    padding: 0px;
+    border: 5px #182C2E solid;
+    justify-self: start;
+    align-self: start;
+    margin: 10px;
+    height: 360px;
 }
 
 /*
