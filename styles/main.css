@@ -20,6 +20,7 @@
     line-height: 375px;
     background-repeat: no-repeat;
     letter-spacing: 10px;
+    font-weight: bold;
 }
 
 .nav{
@@ -55,10 +56,11 @@ li a:hover {
 }
 
 .aboutmetitle{
-    grid-area: 3/2/4/ span 1;
-    text-align: center;
+    grid-area: 3/1/4/ span 1;
     font-size: 20px;
     padding-top:5px;
+    padding-left: 15px;
+    font-weight: bold;
 }
 
 .aboutme{
