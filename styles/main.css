@@ -7,7 +7,7 @@
 
 .grid {
     display: grid;
-    grid-template-rows: 375px 50px 75px 400px;
+    grid-template-rows: 375px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -17,6 +17,7 @@
     grid-area: 1/1/2/ span 3;
     z-index: 10;
     text-align: center;
+    line-height: 375px;
     background-repeat: no-repeat;
 }
 
