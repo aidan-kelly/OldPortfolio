@@ -58,15 +58,16 @@ li a:hover {
 .aboutmetitle{
     grid-area: 3/1/4/ span 1;
     font-size: 20px;
-    padding-top:5px;
-    padding-left: 15px;
+    padding: 25px;
+    padding-bottom: 0px;
     font-weight: bold;
+    
 }
 
 .aboutme{
     grid-area: 4/1/5/span 2;
     font-size: 20px;
-    padding: 10px;
+    padding: 25px;
 }
 
 .mypic{
