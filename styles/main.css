@@ -68,6 +68,7 @@ li a:hover {
     grid-area: 4/1/5/span 2;
     font-size: 20px;
     padding: 25px;
+    
 }
 
 .mypic{
@@ -79,6 +80,7 @@ li a:hover {
     margin: 10px;
     height: 360px;
 }
+
 
 /*
 Test Change
