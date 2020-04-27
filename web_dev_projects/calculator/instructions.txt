@@ -1,0 +1,5 @@
+Aidan Kelly | 10173966 | Tutorial 01
+URL = https://pages.cpsc.ucalgary.ca/~aidan.kelly/a2/calculator.html
+To test my application I used Firefox, Chrome, Mobile Firefox and Mobile Safari. 
+To deploy my calculator all you need to do is include all 3 files on your server. This is because 
+my application only uses HTML, CSS, and JavaScript.

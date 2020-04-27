@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Format Strings</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="images/html-coding.png"/>
+    </head>
+    <body>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-items"><a href="index.html">Home</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="bufoverflow.html">Buffer Overflows</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items">Format String Exploits</li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="resources.html">Resources</a></li>
+            </ul>
+        </nav>     
+
+        <div class="article">
+            <h1>Format String Exploits</h1>   
+            <p>
+                Format string vulnerabilities present themselves due to improper use of the printf()
+                function alongside with unchecked user input in the C programming language. Printf() 
+                takes in a format string and an unlimited number of parameters that will be used by 
+                the format string. A format string is simply a string that contains <em>format 
+                specifiers</em> (these start with the '%' character) that tell the function how to 
+                translate the data that corresponds. 
+            </p>
+
+            <p>
+                Here is a table of format specifiers and what they do:
+            </p>
+
+            <table>
+                <tr class="table-row">
+                    <th>Format Specifier</th>
+                    <th>Function</th>
+                </tr>
+
+                <tr class="table-row">
+                    <td>%d</td>
+                    <td>Prints an integer.</td>
+                </tr>
+
+                <tr class="table-row">
+                    <td>%u</td>
+                    <td>Prints an unsigned integer.</td>
+                </tr>
+
+                <tr class="table-row">
+                    <td>%f</td>
+                    <td>Prints a double.</td>
+                </tr>
+
+                <tr class="table-row">
+                    <td>%x</td>
+                    <td>Prints a hexadecimal number.</td>
+                </tr>
+
+                <tr class="table-row">
+                    <td>%n</td>
+                    <td>Writes the number of characters that have been printed so far, to the memory address that corresponds.</td>
+                </tr>
+            </table>
+
+            <p>
+                Here is the right way to print user input:
+            </p>
+            
+            <div class="code-container">
+                <pre>
+printf("%s", input);</pre>
+            </div>
+            
+
+            <p>
+                And here is the wrong way to print user input:
+            </p>
+
+            <div class="code-container">
+                <pre>
+printf(input);</pre>
+            </div>
+            
+
+            <p>
+                The problem with this, is that the  user can input their own format string as 
+                input, which can have unintended results. This is beacuse the format string tells 
+                printf() how many parameters are expected. If you supply a format string that 
+                has more format specifiers than it has parameters, printf() will print out 
+                memory on the stack that is after the last given parameter. 
+            </p>
+
+            <hr>
+            <h2>Example</h2>
+
+            <div class="code-container">
+                <pre>
+printf("%s %s %s", string1, string2)</pre>
+            </div>
+            
+
+            <p>
+                The above code will print out string1, then string2, and then will print out whatever
+                comes above string2 in memory. This can be used to leak information in memory that 
+                the user is not supposed to be able to access.
+            </p>
+
+            <p>
+                You can also use format strings to write data using the %n format specifier. 
+                Since %n writes to the next address it finds on the stack. An attacker is able 
+                to use this to write arbitrary data to memory addresses that they are not supposed to be able 
+                to access. This can lead to an attacker gaining control of the program/computer.
+            </p>
+
+            <div class="image-container">
+                <img id="xkcd" src="images/xkcd.png"/>
+            </div>
+
+            <p>
+                This is what happens when you don't follow best practices. Don't use printf(input).
+            </p>
+        </div>
+
+    </body>
+</html>

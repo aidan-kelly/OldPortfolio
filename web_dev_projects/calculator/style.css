@@ -1,0 +1,50 @@
+@media only screen and (min-width : 700px){    
+    html, body{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width : 700px) and (orientation : landscape) {    
+    html, body{
+        height: 100%;
+        width: 600px;
+    }
+}
+
+html, body{
+    padding: 0;
+    margin: 0 auto;
+    background-color: #232931;
+    color: #eeeeee;
+    font-family: 'Roboto Mono', monospace;
+    font-size: xx-large;
+}
+
+.button-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    height:70%;
+}
+
+.outer-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30%;
+}
+
+button{
+    border-radius: 15px;
+    margin: 5px;
+    font-family: inherit;
+    font-size: 1.2em;
+    background-color: #eeeeee;
+}

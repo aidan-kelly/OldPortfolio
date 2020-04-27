@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buffer Overflows</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="images/html-coding.png"/>
+    </head>
+    <body>
+
+        <!--Nav Bar-->
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-items"><a href="index.html">Home</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items current">Buffer Overflows</li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="formatstrings.html">Format String Exploits</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="resources.html">Resources</a></li>
+            </ul>
+        </nav>
+
+        <div class="article">
+            <h1>Buffer Overflows</h1>
+            
+            <p>
+                Buffers are areas of memory set aside to hold data, often while moving it from one 
+                section of a program to another. Buffer overflows can often be triggered by malformed 
+                inputs; if one assumes all inputs will be smaller than a certain 
+                size and the buffer is created to be that size, then an anomalous transaction that 
+                produces more data could cause it to write past the end of the buffer. For example if 
+                you create a buffer of size 10 and you write 20 bytes of data to this buffer, your input 
+                data will fill up the 10 bytes of the buffer and then write 10 more bytes to adjacent 
+                memory. If this overwrites adjacent data or executable code, this may result in erratic 
+                program behavior, including memory access errors, incorrect results, and crashes. You 
+                may have experienced this yourself if you have ever had a program seg fault on you. 
+            </p>
+            
+            <p>
+                Exploiting the behavior of a buffer overflow is a well-known security exploit. On many 
+                systems, the memory layout of a program, or the system as a whole, is well defined. By 
+                sending in data designed to cause a buffer overflow, it is possible to write into areas 
+                known to hold executable code and replace it with malicious code, or to selectively 
+                overwrite data pertaining to the program's state, therefore causing behavior that was 
+                not intended by the original programmer.
+            </p>
+            <hr>
+            <h2>Example</h2>
+
+            <p>
+                The following C code is vulnerable to a buffer overflow attack:
+            </p>
+
+            <div class="code-container">
+
+                <!--It was really hard to make these pre tags look easy to read.-->
+                <pre>
+    int main(int argc, char *argv[]) 
+    {
+        //create a buffer of size 5 bytes
+        char buffer[5];
+
+        //look for our input string
+        if (argc < 2) 
+        { 
+                printf("Usage: %s (input)\n", argv[0]); 
+                exit(0); 
+        } 
+
+        //copy the input into the buffer
+        //not checking to see if the input fits
+        strcpy(buffer, argv[1]); 
+
+        //print out the buffer
+        printf("buffer content= %s\n", buffer); 
+
+        return 0; 
+    }           </pre>
+            </div>
+
+            <p>
+                In the code above we copy input from the command line into a buffer the size of 5 bytes.
+                The problem is that we can supply input that is larger than 5 bytes and strcpy() will 
+                copy it into the buffer regardless. What ends up happening is, the data we copy into buffer 
+                will fill up the 5 bytes of buffer and then overflow into other memory addresses. 
+            </p>
+
+            <p>
+                An attacker can exploit this due to how the function stack is laid out. 
+            </p>
+
+            <div class="image-container">
+                <img id="stack" src="images/stack.png"/>
+            </div>
+
+            <p>
+                After buffer fills with the first 5 bytes of data, strcpy() will continue to copy our 
+                input into the memory above the buffer. In the picture above, we will end up overwriting 
+                the higher memory addresses.  
+            </p>
+
+            <p>
+                If an attacker is able to overwrite the return address of a function with the address of 
+                some shellcode that they control, they will be able to hijack control of the program. 
+                Shellcode is precompiled code that is able to be executed. We can fill the buffer with 
+                our shellcode, and then overwrite the return address to point directly at our shellcode. 
+                Once the program returns, it will return to and execute our shellcode, giving us control 
+                of the program. 
+            </p>
+        </div>
+
+    </body>
+</html>
