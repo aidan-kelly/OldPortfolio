@@ -1,1 +1,2 @@
-This is my second attempt at creating a website! I am currently just using html and css.
+# seng513-a1
+A website created using only HTML and CSS. Created to educate the user on basic binary exploitation. 

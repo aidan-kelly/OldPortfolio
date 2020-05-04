@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Web Dev | Aidan Kelly</title>
+        <title>Web Development</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
         <link rel="icon" type="image/png" href="images/html-coding.png"/>
     </head>
     <body>
-        <h1>Projects</h1>
-        <ul>
-            <li><a href="web_dev_projects/security-page/index.html">Security Website</a></li>
-            <li><a href="web_dev_projects/calculator/calculator.html">Calculator</a></li>
-            <li><a href="https://aidan-chat.herokuapp.com/">Chatroom</a></li>
-        </ul>
+
+        <!--Nav Bar-->
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-items"><a href="index.html">Home</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="aboutme.html">About Me</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="aidankelly.pdf">Resume</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items current">Web Development</li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="portfolio.html">Other Projects</a></li>
+            </ul>
+        </nav>
+
+        <div class="article">
+            <h1>Web Development</h1>
+
+            <p>
+                I have been trying to learn web development for a long time now. Browsing through my 
+                GitHub account will present you with three different attempts I have made to create 
+                myself an eye catching portfolio website. I think I have finally achieved that goal 
+                however and created a portfolio that I am proud of. Bellow you will find links to 
+                the web development projects I have created. 
+            </p>
+            <br>
+
+            <div class="portfolio">
+    
+                
+                <h2><a href="web_dev_projects/security-page/index.html" target="_blank">Security Website</a></h2>
+                <p>
+                    In the Fall of 2019 I had the pleasure of taking a university course on computer security 
+                    and the basics of binary exploitation. I fell in love with the subject and decided to 
+                    create a simple website talking about it, in order to relearn the basics of HTML and CSS.
+                </p>
+                <hr>
+    
+                <h2><a href="web_dev_projects/calculator/calculator.html" target="_blank">Javascript Calculator</a></h2>
+                <p>
+                    This is just a simple Javascript Calculator I created to help me learn how to connect 
+                    my HTML with Javascript in order to create interactive websites. 
+                </p>
+                <hr>
+    
+                <h2><a href="https://aidan-chat.herokuapp.com/" target="_blank">Chatroom</a></h2>
+                <p>
+                    This is my chatroom that I created using HTML, CSS, NodeJS, and Socket.io. I also chose 
+                    to host it on Heroku so that I would be able to get my friends to test it out with me. 
+                </p>
+                <hr>
+            </div>
+        </div>
+
     </body>
 </html>
